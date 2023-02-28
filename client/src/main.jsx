@@ -6,7 +6,6 @@ import "./styles/index.css";
 import ErrorPage from "./pages/ErrorPage";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
-import chatBot from "./pages/chatBot";
 
 const router = createBrowserRouter([
   {
@@ -22,10 +21,6 @@ const router = createBrowserRouter([
     path: "/register",
     element: <RegisterPage />,
   },
-  {
-    path: "/bot",
-    element: <chatBot />,
-  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

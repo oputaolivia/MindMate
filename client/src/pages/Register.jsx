@@ -2,6 +2,42 @@ import "../styles/register.css";
 import loginVec from "../assets/vec2.svg";
 
 export default function RegisterPage() {
+  const registerUser = (e) => {
+    e.preventDefault();
+    const data = {
+      firstName: e.target.fname.value,
+      lastName: e.target.lname.value,
+      email: e.target.email.value,
+      password: e.target.password.value,
+      confPassword: e.target.cpassword.value,
+    };
+    console.log(data);
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify(data);
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch("https://mindmate-m3ak.onrender.com/user/register", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        alert(result.message);
+        if (result.status === 0) {
+          window.location.href = "/login";
+        }
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
   return (
     <div className="register__page">
       <div className="bg-content">
@@ -23,11 +59,11 @@ export default function RegisterPage() {
           </div>
         </div>
 
-        <form action="">
+        <form action="" onSubmit={registerUser}>
           <fieldset>
             <div className="inp">
               <span className="iconx">
-                <i class="fa-regular fa-user"></i>
+                <i className="fa-regular fa-user"></i>
               </span>
               <input
                 type="text"
@@ -38,7 +74,7 @@ export default function RegisterPage() {
             </div>
             <div className="inp">
               <span className="iconx">
-                <i class="fa-regular fa-user"></i>
+                <i className="fa-regular fa-user"></i>
               </span>
               <input
                 type="text"
@@ -67,7 +103,7 @@ export default function RegisterPage() {
                 </svg>
               </span>
               <input
-                type="text"
+                type="password"
                 name="password"
                 id="password"
                 placeholder="Password"
@@ -87,9 +123,9 @@ export default function RegisterPage() {
                 </svg>
               </span>
               <input
-                type="text"
-                name="password"
-                id="password"
+                type="password"
+                name="cpassword"
+                id="cpassword"
                 placeholder="Confirm password"
               />
             </div>

@@ -2,6 +2,44 @@ import "../styles/login.css";
 import loginVec from "../assets/login-vec.svg";
 
 export default function LoginPage() {
+  const loginUser = (e) => {
+    e.preventDefault();
+
+    const data = {
+      email: e.target.email.value,
+      password: e.target.password.value,
+    };
+
+    console.log(data);
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify(data);
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch("https://mindmate-m3ak.onrender.com/user/login", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        alert(result.message);
+        if (result.status === 0) {
+          // store token
+          localStorage.setItem("authToken", result.token);
+          localStorage.setItem("userData", JSON.stringify(result.data));
+          // redirect to home
+          window.location.href = "/";
+        }
+        console.log(result);
+      })
+      .catch((error) => console.log("error", error));
+  };
+
   return (
     <div className="login__page">
       <div className="bg-content">
@@ -26,7 +64,7 @@ export default function LoginPage() {
           </div>
         </div>
 
-        <form action="">
+        <form action="" onSubmit={loginUser}>
           <h3>Log in</h3>
           <p>Fill in your details to access your account</p>
 
@@ -63,7 +101,6 @@ export default function LoginPage() {
               />
             </div>
             <a href="/forgot-password">Forgot password ?</a>
-            <a href="./Register.jsx">Sign Up</a>
           </fieldset>
           <button type="submit">Log in</button>
         </form>
