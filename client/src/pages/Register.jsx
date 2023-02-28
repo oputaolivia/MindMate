@@ -1,4 +1,5 @@
 import "../styles/register.css";
+import "../styles/login.css";
 import loginVec from "../assets/vec2.svg";
 
 export default function RegisterPage() {
@@ -133,6 +134,7 @@ export default function RegisterPage() {
               <input type="checkbox" name="agreement" id="agreement" /> I agree
               to the terms and conditions
             </label>
+            <a href="/login" className="agreement">Already have an account? Login</a>
           </fieldset>
           <button type="submit">Sign up</button>
         </form>

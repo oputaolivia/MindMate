@@ -8,13 +8,13 @@
 }
 
 body {
-  background: #343541;
+  background: #5f1e7e;
 }
 
 #app {
   width: 100vw;
   height: 100vh;
-  background: #343541;
+  background: #5f1e7e;
 
   display: flex;
   flex-direction: column;

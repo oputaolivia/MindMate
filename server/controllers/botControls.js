@@ -64,14 +64,15 @@ async function generateText(prompt) {
         console.log(`Response: ${AIResp}`)
         // console.log(login.req.email)
     let chat = new Chat ({
-        // userId: tokenIsValid.user,
         MindMate: AIResp,
         userMessage: prompt,
     });
     chat.save((err, chat)=>{
         if (err){
             res.status(500).send({
-                data: {},
+                data: {
+                    
+                },
                     message: `An error occured during registration: ${err}`,
                     status: 1,
             });
@@ -92,6 +93,24 @@ async function generateText(prompt) {
     let userMessage = req.body.prompt;
     prepareChat(userMessage);
 }
+
+const getChats = async (req,res) =>{
+    try{
+        const chats = await Chat.find({});
+        res.status(200).send({
+            data: chats,
+            message: "Chats",
+            status: 0,
+        })
+    }catch (err){
+        res.status(500).send({
+            data: {},
+            message: err,
+            status: 1,
+        });
+    }
+}
 module.exports={
     chatBot,
+    getChats,
 }

@@ -33,7 +33,7 @@ export default function LoginPage() {
           localStorage.setItem("authToken", result.token);
           localStorage.setItem("userData", JSON.stringify(result.data));
           // redirect to home
-          window.location.href = "/";
+          window.location.href = "/chatBot";
         }
         console.log(result);
       })
@@ -100,7 +100,7 @@ export default function LoginPage() {
                 placeholder="Password"
               />
             </div>
-            <a href="/forgot-password">Forgot password ?</a>
+            <a href="/">Register</a>
           </fieldset>
           <button type="submit">Log in</button>
         </form>
