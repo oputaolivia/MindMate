@@ -1,0 +1,133 @@
+/* Login Page */
+
+.register__page {
+  background-color: #9469a9;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+}
+
+.register__page > div {
+  flex-grow: 1;
+  max-width: 50%;
+}
+
+.register__page .center-text {
+  max-width: 350px;
+  margin: 0px auto;
+  padding: 3rem 8px;
+}
+
+.register__page .center-text p {
+  font-size: 1.1rem;
+}
+
+.register__page .center-text h2 {
+  font-size: 2rem;
+}
+
+.register__page .center-text img {
+  max-width: 450px;
+  margin: 25px 0 0;
+}
+
+.register__page .main {
+  background-color: white;
+  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 2rem;
+  color: black;
+  padding: 1rem;
+}
+
+.register__page .main .greet {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.register__page .main .greet p {
+  margin-top: 10px;
+  color: #979797;
+  font-size: 1.2rem;
+}
+
+.register__page .main form {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.register__page .main form p {
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  color: #909090;
+}
+
+.register__page .main form fieldset {
+  border: none;
+  display: grid;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.register__page .main .inp {
+  display: flex;
+  border: 1px solid #dddcde;
+  border-radius: 0.1rem;
+}
+
+.register__page .main .inp .iconx {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register__page .main .inp .iconx svg {
+  width: 20px;
+  height: 20px;
+}
+
+.register__page .main .inp input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+}
+
+.register__page .main form .agreement {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #606060;
+  padding: 0 5px;
+}
+
+.register__page .main form button {
+  background-color: #5f1e7e;
+  color: white;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Media queries */
+@media screen and (max-width: 1000px) {
+  .register__page > div {
+    max-width: none;
+  }
+
+  .register__page .bg-content {
+    display: none;
+  }
+
+  .register__page .main {
+    border-radius: 0px !important;
+  }
+}
