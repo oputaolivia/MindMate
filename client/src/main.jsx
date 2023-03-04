@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./styles/index.css";
 import ErrorPage from "./pages/ErrorPage";
 import chatBot from "./pages/chatBot";
+import Chat from "./pages/Chat";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/chatBot",
     element: <chatBot />,
+  },
+  {
+    path: "/chat",
+    element: <Chat />,
   },
 ]);
 
